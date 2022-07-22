@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "main.hpp"
 #include "input_read.hpp"
 #include "graphics_handler.hpp"
@@ -28,6 +29,20 @@ int main(int argc, char** argv){
                     is_running = !is_running;
                     clock.restart();
                 }
+                else if(event.key.code == sf::Keyboard::Right){
+                    input_args.time_between_iteration += 50;
+                    std::cout << "New iteration every: " << input_args.time_between_iteration << "ms" << std::endl;
+                    clock.restart();
+                }
+                else if(event.key.code == sf::Keyboard::Left){
+                    input_args.time_between_iteration += -50;
+                    if(input_args.time_between_iteration <= 0){
+                        input_args.time_between_iteration = 50;
+                    }
+                    std::cout << "New iteration every: " << input_args.time_between_iteration << "ms" << std::endl;
+                    clock.restart();
+                }
+                event.type=sf::Event::MouseLeft;
                 break;
             case sf::Event::MouseButtonPressed:
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
