@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.10.0)
+project(Universe0.0)
+
+set(CMAKE_CXX_STANDARD 17)
+
+IF(CMAKE_BUILD_TYPE MATCHES "Release")
+    set(CMAKE_CXX_FLAGS_RELEASE "-O2")
+ELSEIF(CMAKE_BUILD_TYPE MATCHES "Debug")
+    set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
+ELSEIF(CMAKE_BUILD_TYPE MATCHES "RelWithDebInfo")
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
+ENDIF()
+
+add_subdirectory(src/)
