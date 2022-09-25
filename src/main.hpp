@@ -2,11 +2,11 @@
 #define UNIVERSE0_0_MAIN_HPP
 
 struct InputArgs{
-    unsigned int time_between_iteration = 1000;
-    unsigned int pixels_x=0;
-    unsigned int pixels_y=0;
-    unsigned int blocks_x=0;
-    unsigned int blocks_y=0;
+    unsigned int time_between_iteration = 300;
+    unsigned int pixels_x=1000;
+    unsigned int pixels_y=1000;
+    unsigned int blocks_x=25;
+    unsigned int blocks_y=25;
     unsigned int pixels_x_per_block=0;
     unsigned int pixels_y_per_block=0;
 };

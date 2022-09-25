@@ -28,10 +28,10 @@ InputArgs readInputArgs(int argc, char** argv){
             i++;
             input_args.blocks_y = static_cast<unsigned int>(std::stoi(argv[i]));
         }
-        else if(std::strcmp(argv[i], "-it") == 0){
-            i++;
-            input_args.time_between_iteration = static_cast<unsigned int>(std::stoi(argv[i]));
-        }
+    }
+
+    if(input_args.pixels_x % input_args.blocks_x != 0 || input_args.pixels_y % input_args.blocks_y != 0){
+        throw std::invalid_argument("Number of pixels cannot be divided by number of blocks");
     }
 
     input_args.pixels_x_per_block = input_args.pixels_x/input_args.blocks_x;
