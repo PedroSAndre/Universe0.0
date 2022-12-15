@@ -57,9 +57,9 @@ void checkInputArgs(const InputArgs& input_args){
         throw std::invalid_argument("Cannot create window with y blocks dimension provided");
     }
 
-    else if(input_args.pixels_x_per_block < MIN_PIXEL_PER_BLOCK_SIZE || input_args.pixels_y_per_block < MIN_PIXEL_PER_BLOCK_SIZE){
+    /*else if(input_args.pixels_x_per_block < MIN_PIXEL_PER_BLOCK_SIZE || input_args.pixels_y_per_block < MIN_PIXEL_PER_BLOCK_SIZE){
         throw std::invalid_argument("Block size in pixels needs to be bigger");
-    }
+    }*/
 
     else if(input_args.time_between_iteration == 0){
         throw std::invalid_argument("Invalid time between iterations");
