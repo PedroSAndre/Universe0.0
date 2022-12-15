@@ -4,10 +4,8 @@ void addCell(std::vector<std::vector<Cell>>& cells, const sf::Vector2i& local_mo
     unsigned int x,y;
     x = local_mouse_position.x / input_args.pixels_x_per_block;
     y = local_mouse_position.y / input_args.pixels_y_per_block;
-    if(x<0||y<0||x>=cells.size()||y>=cells[0].size()){
-        return;
-    }
-    cells[x][y].is_alive=1;//!cells[x][y].is_alive;
+
+    cells[x][y].is_alive=!cells[x][y].is_alive;
 }
 
 void iterationStep(std::vector<std::vector<Cell>>& cells){
