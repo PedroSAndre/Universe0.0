@@ -45,12 +45,19 @@ int main(int argc, char** argv){
                 event.type=sf::Event::MouseLeft;
                 break;
             case sf::Event::MouseButtonPressed:
-                if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-                    local_mouse_position = sf::Mouse::getPosition(window);
-                    addCell(cells, local_mouse_position, input_args);
-                    updateWindow(window, input_args, cells);
+                while(event.type!=sf::Event::MouseButtonReleased) {
+                    clock.restart();
+
+                    if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+                        local_mouse_position = sf::Mouse::getPosition(window);
+                        addCell(cells, local_mouse_position, input_args);
+                        updateWindow(window, input_args, cells);
+                    }
+
+                    while(clock.getElapsedTime().asMilliseconds() < 5) {
+                    }
+                    window.pollEvent(event);
                 }
-                event.type=sf::Event::MouseLeft;
                 break;
             default:
                 break;
